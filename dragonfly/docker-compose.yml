@@ -3,7 +3,7 @@ services:
     image: docker.dragonflydb.io/dragonflydb/dragonfly
     container_name: dragonfly
     volumes:
-      - ./dragonfly.conf:/etc/dragonfly/dragonfly.conf:ro
+      - ./conf/dragonfly.conf:/etc/dragonfly/dragonfly.conf:ro
       - ./data:/var/lib/dragonfly
       - ./logs:/var/log/dragonfly
     ports:
