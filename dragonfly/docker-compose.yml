@@ -1,0 +1,12 @@
+services:
+  dragonfly:
+    image: docker.dragonflydb.io/dragonflydb/dragonfly
+    container_name: dragonfly
+    volumes:
+      - ./dragonfly.conf:/etc/dragonfly/dragonfly.conf:ro
+      - ./data:/var/lib/dragonfly
+      - ./logs:/var/log/dragonfly
+    ports:
+      - "16379:6379"
+    command: ["dragonfly", "--flagfile=/etc/dragonfly/dragonfly.conf", "--log_dir=/var/log/dragonfly"]
+    restart: unless-stopped
